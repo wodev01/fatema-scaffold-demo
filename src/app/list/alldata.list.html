@@ -2,25 +2,25 @@
   <div class="page-header">
     <a ui-sref="main.formData({dataID: 'add',flag: 'false'})" class="btn btn-success"><span
       class="glyphicon glyphicon-plus"></span> New Data</a>
+    <label class="pull-right text-success">{{listC.DemoName}}</label>
   </div>
-  <div ng-show="isLoad">
+  <div ng-show="listC.isLoad">
     <h4 class="text-center">Loading...</h4>
   </div>
-  <div ng-show="(!allData.length || !allData) && !isLoad">
+  <div ng-show="(!listC.allData.length || !listC.allData) && !listC.isLoad">
     <h4 class="text-center">No Record found</h4>
   </div>
-  <ul class="list-group" ng-show="allData.length && !isLoad">
-    <li class="list-group-item" ng-repeat="data in allData track by $index">
-      UserID: {{data.userId}}
+  <ul class="list-group" ng-show="listC.allData.length && !listC.isLoad">
+    <li class="list-group-item" ng-repeat="data in listC.allData track by $index">
       <div class="btn-toolbar">
-        <a href="javascript:void(0)" ng-click="fnDeleteEntry(data.id)" class="pull-right btn btn-danger btn-sm"
+        UserID: {{data.userId}}
+        <a href="javascript:void(0)" ng-click="listC.fnDeleteEntry(data.id)" class="pull-right btn btn-danger btn-sm"
            title="DELETE"><span class="glyphicon glyphicon-trash"></span></a>
         <a ui-sref="main.formData({dataID: data.id,flag: 'false'})" class="pull-right btn btn-warning btn-sm" title="EDIT"><span
           class="glyphicon glyphicon-edit"></span></a>
         <a ui-sref="main.formData({dataID: data.id,flag: 'true'})" class="pull-right btn btn-info btn-sm" title="VIEW"><span
           class="glyphicon glyphicon-zoom-in"></span></a>
       </div>
-      <br>
       ID: {{data.id}}<br>
       Title: {{data.title}}<br>
       Body: {{data.body}}<br>

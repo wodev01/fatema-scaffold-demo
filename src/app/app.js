@@ -12,18 +12,18 @@ angular
         .state('main', {
             url: '/',
             abstract: true,
-            templateUrl: 'app/components/navbar/navigation.html'
+            templateUrl: 'app/main/main.html'
         })
         .state('main.allData', {
             url: 'allData',
-            templateUrl: 'app/main/alldata.list.html',
-            controller: 'MainController',
-            controllerAs: 'mainc'
+            templateUrl: 'app/list/alldata.list.html',
+            controller: 'ListController',
+            controllerAs: 'listC'
         })
         .state('main.formData',{
             url: 'data/:dataID?flag',
-            templateUrl: 'app/data/data.form.html',
-            controller: 'CrudController',
-            controllerAs: 'crudc'
+            templateUrl: 'app/form/data.form.html',
+            controller: 'FormController',
+            controllerAs: 'FormC'
         });
 });

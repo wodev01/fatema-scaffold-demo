@@ -4,16 +4,18 @@
 angular
   .module("scaffoldDemo")
   .controller("MainController", function ($scope,$http,$state,MainService,$log) {
-    $scope.isLoad = true;
+    var vm = this;
+    vm.isLoad = true;
+    vm.dummyScope ='Testing';
      MainService.fnGetAllEntries()
          .then(function (response) {
-             $scope.allData = response;
-             $scope.isLoad = false;
+             vm.allData = response;
+             vm.isLoad = false;
          },function(error){
              $log.error("error: ", error);
-             $scope.isLoad = false;
+             vm.isLoad = false;
          });
-    $scope.fnDeleteEntry = function (id) {
+    vm.fnDeleteEntry = function (id) {
         MainService.fnRemoveEntry(id);
     };
 });

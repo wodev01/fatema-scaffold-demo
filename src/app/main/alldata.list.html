@@ -1,16 +1,17 @@
+{{mainc.dummyScope}}
 <div class="container-fluid">
   <div class="page-header">
     <a ui-sref="main.formData({dataID: 'add',flag: 'false'})" class="btn btn-success"><span
       class="glyphicon glyphicon-plus"></span> New Data</a>
   </div>
-  <div ng-show="isLoad">
+  <div ng-show="mainc.isLoad">
     <h4 class="text-center">Loading...</h4>
   </div>
-  <div ng-show="(!allData.length || !allData) && !isLoad">
+  <div ng-show="(!mainc.allData.length || !mainc.allData) && !mainc.isLoad">
     <h4 class="text-center">No Record found</h4>
   </div>
-  <ul class="list-group" ng-show="allData.length && !isLoad">
-    <li class="list-group-item" ng-repeat="data in allData track by $index">
+  <ul class="list-group" ng-show="mainc.allData.length && !mainc.isLoad">
+    <li class="list-group-item" ng-repeat="data in mainc.allData track by $index">
       UserID: {{data.userId}}
       <div class="btn-toolbar">
         <a href="javascript:void(0)" ng-click="fnDeleteEntry(data.id)" class="pull-right btn btn-danger btn-sm"
